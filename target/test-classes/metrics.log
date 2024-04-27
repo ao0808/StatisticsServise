@@ -1,0 +1,52 @@
+Support to run JUnit tests using TestNG stands deprecated and will be removed in future versions. You can now use the JUnit5 TestNG engine to run both JUnit and TestNG tests. For more information refer to https://github.com/junit-team/testng-engine .
+Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@26d7cb0d, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@23e9dd78, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@470c4229, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6408be5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1e57b783, org.springframework.test.context.event.EventPublishingTestExecutionListener@73b8ab2c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5600a278, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@549d14fe, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@77d54a41, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@41026e5c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@12421766, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@2e44cb34]
+Bean 'applicationConfiguration' of type [ru.sbrf.statisticsServise.configurationSpring.ApplicationConfiguration$$EnhancerBySpringCGLIB$$75583279] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ID: 1 Class: Transmission3G Method: transmissionClassic ExecutionTime: 10025
+ID: 2 Class: Transmission3G Method: transmissionTurbo ExecutionTime: 7650
+ID: 3 Class: Transmission3G Method: transmissionUltra ExecutionTime: 5036
+ID: 4 Class: Transmission4G Method: transmissionClassic ExecutionTime: 4109
+ID: 5 Class: Transmission4G Method: transmissionTurbo ExecutionTime: 3139
+ID: 6 Class: Transmission4G Method: transmissionUltra ExecutionTime: 2530
+ID: 7 Class: Transmission4G Method: transmissionClassic ExecutionTime: 4106
+ID: 8 Class: Transmission4G Method: transmissionTurbo ExecutionTime: 3079
+ID: 9 Class: Transmission4G Method: transmissionUltra ExecutionTime: 2503
+ID: 10 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2068
+ID: 11 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1530
+ID: 12 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1104
+ID: 13 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2031
+ID: 14 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1558
+ID: 15 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1084
+ID: 16 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2054
+ID: 17 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1588
+ID: 18 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1100
+ID: 19 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2069
+ID: 20 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1540
+ID: 21 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1107
+ID: 22 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2064
+ID: 23 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1573
+ID: 24 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1106
+ID: 25 Class: Transmission3G Method: transmissionClassic ExecutionTime: 10030
+ID: 26 Class: Transmission3G Method: transmissionTurbo ExecutionTime: 7576
+ID: 27 Class: Transmission3G Method: transmissionUltra ExecutionTime: 5096
+ID: 28 Class: Transmission4G Method: transmissionClassic ExecutionTime: 4053
+ID: 29 Class: Transmission4G Method: transmissionTurbo ExecutionTime: 3008
+ID: 30 Class: Transmission4G Method: transmissionUltra ExecutionTime: 2523
+ID: 31 Class: Transmission4G Method: transmissionClassic ExecutionTime: 4125
+ID: 32 Class: Transmission4G Method: transmissionTurbo ExecutionTime: 2996
+ID: 33 Class: Transmission4G Method: transmissionUltra ExecutionTime: 2523
+ID: 34 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2044
+ID: 35 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1552
+ID: 36 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1097
+ID: 37 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2016
+ID: 38 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1556
+ID: 39 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1092
+ID: 40 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2057
+ID: 41 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1574
+ID: 42 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1088
+ID: 43 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2071
+ID: 44 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1566
+ID: 45 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1091
+ID: 46 Class: Transmission5G Method: transmissionClassic ExecutionTime: 2048
+ID: 47 Class: Transmission5G Method: transmissionTurbo ExecutionTime: 1568
+ID: 48 Class: Transmission5G Method: transmissionUltra ExecutionTime: 1064

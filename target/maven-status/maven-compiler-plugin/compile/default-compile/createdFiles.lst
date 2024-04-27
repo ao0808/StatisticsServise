@@ -1,0 +1,15 @@
+ru\sbrf\statisticsServise\implementation\report\ReportMyMetrics$1.class
+ru\sbrf\statisticsServise\annotation\Metrics.class
+ru\sbrf\statisticsServise\implementation\report\ReportHolder.class
+ru\sbrf\statisticsServise\configurationSpring\MetricsInvocationHandler.class
+ru\sbrf\statisticsServise\interfase\Report.class
+ru\sbrf\statisticsServise\implementation\transmission\Transmission4G.class
+ru\sbrf\statisticsServise\implementation\transmission\Transmission5G.class
+ru\sbrf\statisticsServise\interfase\DataTransmission.class
+ru\sbrf\statisticsServise\configurationSpring\ApplicationConfiguration.class
+ru\sbrf\statisticsServise\configurationSpring\MyBeanProxy.class
+ru\sbrf\statisticsServise\implementation\report\ReportMyMetrics.class
+ru\sbrf\statisticsServise\model\MetricModel$MetricModelBuilder.class
+ru\sbrf\statisticsServise\implementation\transmission\Transmission3G.class
+ru\sbrf\statisticsServise\Main.class
+ru\sbrf\statisticsServise\model\MetricModel.class

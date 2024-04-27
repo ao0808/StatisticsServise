@@ -1,0 +1,17 @@
+<configuration>
+    # File appender
+    <appender name="fout" class="ch.qos.logback.core.FileAppender">
+        # Name of a log file
+        <file>src/test/resources/metrics.log</file>
+        <append>false</append>
+        <encoder>
+            # Pattern of log message for file appender
+            <pattern>%m%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="fout"/>
+    </root>
+</configuration>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReportMyMetrics.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">task6</a> &gt; <a href="index.source.html" class="el_package">ru.sbrf.statisticsServise.implementation.report</a> &gt; <span class="el_source">ReportMyMetrics.java</span></div><h1>ReportMyMetrics.java</h1><pre class="source lang-java linenums">package ru.sbrf.statisticsServise.implementation.report;
+
+import lombok.SneakyThrows;
+import org.apache.commons.io.IOUtils;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.ResourceLoader;
+import ru.sbrf.statisticsServise.interfase.Report;
+import ru.sbrf.statisticsServise.model.MetricModel;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+
+<span class="fc" id="L14">public class ReportMyMetrics implements Report {</span>
+
+<span class="nc" id="L16">    @SneakyThrows</span>
+    @Override
+    public Map&lt;String, MetricModel&gt; create(String location) {
+<span class="fc" id="L19">        return parsToMap(location);</span>
+    }
+
+    private Map&lt;String, MetricModel&gt; parsToMap(String location) throws IOException {
+<span class="fc" id="L23">        ResourceLoader loader = new DefaultResourceLoader();</span>
+<span class="fc" id="L24">        String text = IOUtils.toString(loader.getResource(location).getInputStream(), StandardCharsets.UTF_8);</span>
+<span class="fc" id="L25">        Map&lt;String, MetricModel&gt; treeWitheMetricsModel = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L26">        String[] lines = text.split(&quot;\n&quot;);</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (int i = 0; i &lt;  Arrays.stream(text.split(&quot;\n&quot;)).count(); i++) {</span>
+<span class="fc" id="L28">            parsStringToElement(treeWitheMetricsModel, lines[i]);</span>
+        }
+<span class="fc" id="L30">        return treeWitheMetricsModel;</span>
+    }
+
+    private void parsStringToElement(Map&lt;String, MetricModel&gt; treeWitheMetricsModel, String lines) {
+<span class="fc" id="L34">        String[] element = lines.split(&quot;\\s+&quot;);</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (element[0].equals(&quot;ID:&quot;)) {</span>
+<span class="fc" id="L36">            createNewMetricsData(treeWitheMetricsModel, element);</span>
+        }
+<span class="fc" id="L38">    }</span>
+
+    private void createNewMetricsData(Map&lt;String, MetricModel&gt; treeWitheMetricsModel, String[] element) {
+<span class="fc" id="L41">        MetricModel data = createNewMetricModelData(element);</span>
+<span class="fc" id="L42">        String key = data.getNameClass() + data.getNameMethod();</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if(!treeWitheMetricsModel.containsKey(key)){</span>
+<span class="fc" id="L44">            treeWitheMetricsModel.put(key, data);</span>
+        } else {
+<span class="fc" id="L46">            updateMetricsData(treeWitheMetricsModel, data, key);</span>
+        }
+<span class="fc" id="L48">    }</span>
+
+    private void updateMetricsData(Map&lt;String, MetricModel&gt; treeWitheMetricsModel, MetricModel data, String key) {
+<span class="fc" id="L51">        MetricModel dataGet = (MetricModel) treeWitheMetricsModel.get(key);</span>
+<span class="fc" id="L52">        dataGet.setTimeInSeconds((dataGet.getTimeInSeconds() + data.getTimeInSeconds())/2.0);</span>
+<span class="fc" id="L53">        dataGet.setCount(dataGet.getCount() + 1);</span>
+<span class="fc" id="L54">    }</span>
+
+    private MetricModel createNewMetricModelData(String[] element) {
+<span class="fc" id="L57">        return MetricModel.builder().Id(Integer.parseInt(element[1])).</span>
+<span class="fc" id="L58">                nameMethod(element[5]).nameClass(element[3]).</span>
+<span class="fc" id="L59">                timeInSeconds(Double.valueOf(element[7])).count(1).build();</span>
+    }
+
+    @Override
+    public void print(Map&lt;String, MetricModel&gt; stringObjectMap) {
+<span class="fc" id="L64">        Character character = 'N';</span>
+<span class="fc" id="L65">        String className = &quot;Class&quot;;</span>
+<span class="fc" id="L66">        String methodName = &quot;Method&quot;;</span>
+<span class="fc" id="L67">        String executeTime = &quot;Time, ms&quot;;</span>
+<span class="fc" id="L68">        String count = &quot;number of method calls&quot;;</span>
+<span class="fc" id="L69">        System.out.format(&quot;%-5s%-15s%-25s%-15s%-15s&quot;, character, className, methodName, executeTime, count);</span>
+<span class="fc" id="L70">        System.out.println();</span>
+<span class="fc" id="L71">        int i = 1;</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for (Map.Entry&lt;String, MetricModel&gt; pair : stringObjectMap.entrySet()) {</span>
+<span class="fc" id="L73">            MetricModel data = (MetricModel) pair.getValue();</span>
+<span class="fc" id="L74">            System.out.format(&quot;%-5s%-15s%-25s%-15s%-15s&quot;,</span>
+<span class="fc" id="L75">                    i++,</span>
+<span class="fc" id="L76">                    data.getNameClass(),</span>
+<span class="fc" id="L77">                    data.getNameMethod(),</span>
+<span class="fc" id="L78">                    data.getTimeInSeconds(),</span>
+<span class="fc" id="L79">                    data.getCount());</span>
+<span class="fc" id="L80">            System.out.println();</span>
+<span class="fc" id="L81">        }</span>
+<span class="fc" id="L82">    }</span>
+        @Override
+        public TreeMap&lt;String, MetricModel&gt; sort(Map&lt;String, MetricModel&gt; hashMap){
+<span class="fc" id="L85">            TreeMap&lt;String, MetricModel&gt; sortedMap = new TreeMap&lt;&gt;(new Comparator&lt;String&gt;() {</span>
+                @Override
+                public int compare(String o1, String o2) {
+<span class="fc" id="L88">                    MetricModel m1 = hashMap.get(o1);</span>
+<span class="fc" id="L89">                    MetricModel m2 = hashMap.get(o2);</span>
+<span class="fc" id="L90">                    double v1 = m1.getTimeInSeconds();</span>
+<span class="fc" id="L91">                    double v2 = m2.getTimeInSeconds();</span>
+<span class="fc" id="L92">                    return Double.compare(v2, v1);</span>
+                }
+            });
+<span class="fc" id="L95">            sortedMap.putAll(hashMap);</span>
+<span class="fc" id="L96">            return sortedMap;</span>
+        }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

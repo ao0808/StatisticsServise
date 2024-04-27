@@ -1,0 +1,13 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+task6,ru.sbrf.statisticsServise.configurationSpring,MyBeanProxy,13,83,2,10,1,18,2,8,0,4
+task6,ru.sbrf.statisticsServise.configurationSpring,MetricsInvocationHandler,0,51,0,2,0,13,0,4,0,3
+task6,ru.sbrf.statisticsServise.configurationSpring,ApplicationConfiguration,0,23,0,0,0,6,0,6,0,6
+task6,ru.sbrf.statisticsServise,Main,21,0,0,0,5,0,2,0,2,0
+task6,ru.sbrf.statisticsServise.implementation.report,ReportMyMetrics,3,242,0,8,1,48,0,13,0,9
+task6,ru.sbrf.statisticsServise.implementation.report,ReportHolder,0,42,0,0,0,11,0,7,0,7
+task6,ru.sbrf.statisticsServise.implementation.report,ReportMyMetrics.new Comparator() {...},0,33,0,0,0,6,0,2,0,2
+task6,ru.sbrf.statisticsServise.implementation.transmission,Transmission5G,10,18,0,0,1,10,1,4,1,4
+task6,ru.sbrf.statisticsServise.implementation.transmission,Transmission3G,10,18,0,0,1,10,1,4,1,4
+task6,ru.sbrf.statisticsServise.implementation.transmission,Transmission4G,9,18,0,0,0,10,0,4,0,4
+task6,ru.sbrf.statisticsServise.model,MetricModel.MetricModelBuilder,19,44,0,0,0,1,2,7,2,7
+task6,ru.sbrf.statisticsServise.model,MetricModel,201,45,36,0,2,6,28,8,10,8

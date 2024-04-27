@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReportHolder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">task6</a> &gt; <a href="index.source.html" class="el_package">ru.sbrf.statisticsServise.implementation.report</a> &gt; <span class="el_source">ReportHolder.java</span></div><h1>ReportHolder.java</h1><pre class="source lang-java linenums">package ru.sbrf.statisticsServise.implementation.report;
+
+import ru.sbrf.statisticsServise.model.MetricModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L8">public class ReportHolder {</span>
+<span class="fc" id="L9">    private static ThreadLocal&lt;ReportHolder&gt; holder = ThreadLocal.withInitial(ReportHolder::new);</span>
+
+<span class="fc" id="L11">    private List&lt;MetricModel&gt; records = new ArrayList&lt;&gt;();</span>
+
+    public void add(MetricModel row) {
+<span class="fc" id="L14">        records.add(row);</span>
+<span class="fc" id="L15">    }</span>
+
+    public List&lt;MetricModel&gt; getRecords() {
+<span class="fc" id="L18">        return new ArrayList&lt;&gt;(records);</span>
+    }
+
+    public static void start() {
+<span class="fc" id="L22">        holder.set(new ReportHolder());</span>
+<span class="fc" id="L23">    }</span>
+
+    public static ReportHolder get() {
+<span class="fc" id="L26">        return holder.get();</span>
+    }
+
+    public static ReportHolder flush() {
+        try {
+<span class="fc" id="L31">            return holder.get();</span>
+        } finally {
+<span class="fc" id="L33">            holder.remove();</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
